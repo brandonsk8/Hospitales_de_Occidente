@@ -2,14 +2,15 @@
 -- PostgreSQL database dump
 --
 
-\restrict aT2WDKj2gu6xRUIqK6M7HyxCeqeSAdaxYdqpZcba4hgKj2pQncmcjqPdFoCsFJW
+\restrict UeduSTehyssJcttR2lf7RTkRfpGgToEtinpTweiw7bgTVjtgdsARUbuvBsKe1Wz
 
--- Dumped from database version 16.13 (Ubuntu 16.13-0ubuntu0.24.04.1)
--- Dumped by pg_dump version 16.13 (Ubuntu 16.13-0ubuntu0.24.04.1)
+-- Dumped from database version 18.6 (Debian 18.6-1.pgdg13+2)
+-- Dumped by pg_dump version 18.6 (Debian 18.6-1.pgdg13+2)
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
 SET idle_in_transaction_session_timeout = 0;
+SET transaction_timeout = 0;
 SET client_encoding = 'UTF8';
 SET standard_conforming_strings = on;
 SELECT pg_catalog.set_config('search_path', '', false);
@@ -22,16 +23,17 @@ SET row_security = off;
 -- Name: hospitales_occidente; Type: DATABASE; Schema: -; Owner: -
 --
 
-CREATE DATABASE hospitales_occidente WITH TEMPLATE = template0 ENCODING = 'UTF8' LOCALE_PROVIDER = libc LOCALE = 'C.UTF-8';
+CREATE DATABASE hospitales_occidente WITH TEMPLATE = template0 ENCODING = 'UTF8' LOCALE_PROVIDER = libc LOCALE = 'en_US.utf8';
 
 
-\unrestrict aT2WDKj2gu6xRUIqK6M7HyxCeqeSAdaxYdqpZcba4hgKj2pQncmcjqPdFoCsFJW
+\unrestrict UeduSTehyssJcttR2lf7RTkRfpGgToEtinpTweiw7bgTVjtgdsARUbuvBsKe1Wz
 \connect hospitales_occidente
-\restrict aT2WDKj2gu6xRUIqK6M7HyxCeqeSAdaxYdqpZcba4hgKj2pQncmcjqPdFoCsFJW
+\restrict UeduSTehyssJcttR2lf7RTkRfpGgToEtinpTweiw7bgTVjtgdsARUbuvBsKe1Wz
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
 SET idle_in_transaction_session_timeout = 0;
+SET transaction_timeout = 0;
 SET client_encoding = 'UTF8';
 SET standard_conforming_strings = on;
 SELECT pg_catalog.set_config('search_path', '', false);
@@ -1471,12 +1473,11 @@ COPY hospital.cita (id_cita, id_paciente, id_medico, id_clinica, fecha_hora, med
 5	18	2	1	2026-09-15 08:00:00	Teléfono	Reconsulta	f	\N	Realizada	\N	1	250.00	75.00	f
 6	23	4	5	2026-09-03 11:00:00	Correo	Primera consulta	f	\N	Cancelada	f	\N	225.00	100.00	f
 7	23	4	5	2026-09-10 11:00:00	Teléfono	Primera consulta	f	\N	Realizada	\N	6	225.00	100.00	t
-8	27	12	2	2026-09-05 09:00:00	Teléfono	Primera consulta	f	\N	Reprogramada	\N	\N	200.00	100.00	f
-9	27	12	2	2026-09-12 09:00:00	Teléfono	Primera consulta	f	\N	Realizada	\N	8	200.00	100.00	f
 10	29	1	4	2026-09-29 08:00:00	Recepción general	Primera consulta	f	\N	Programada	\N	\N	150.00	100.00	f
 11	19	12	2	2026-10-01 09:30:00	Correo	Reconsulta	f	\N	Programada	\N	2	200.00	75.00	f
 12	25	2	1	2026-09-08 08:30:00	Recepción general	Primera consulta	f	\N	Cancelada	t	\N	250.00	100.00	f
 13	21	1	4	2026-09-04 07:30:00	Teléfono	Primera consulta	f	\N	Realizada	\N	\N	150.00	100.00	f
+9	27	12	2	2026-09-12 09:00:00	Teléfono	Primera consulta	f	\N	Realizada	\N	\N	200.00	100.00	f
 \.
 
 
@@ -1581,18 +1582,6 @@ COPY hospital.cuota_pago (id_factura, numero_cuota, monto, fecha_vencimiento, fe
 11	6	1427.00	2027-02-06	\N	Recepción de cirugía
 12	1	982.50	2026-09-08	2026-09-08	Recepción de hospitalización
 12	2	982.50	2026-10-08	\N	Recepción de hospitalización
-13	1	3098.42	2026-09-14	2026-09-14	Recepción de cirugía
-13	2	3098.42	2026-10-14	\N	Recepción de cirugía
-13	3	3098.42	2026-11-14	\N	Recepción de cirugía
-13	4	3098.42	2026-12-14	\N	Recepción de cirugía
-13	5	3098.42	2027-01-14	\N	Recepción de cirugía
-13	6	3098.42	2027-02-14	\N	Recepción de cirugía
-13	7	3098.42	2027-03-14	\N	Recepción de cirugía
-13	8	3098.42	2027-04-14	\N	Recepción de cirugía
-13	9	3098.42	2027-05-14	\N	Recepción de cirugía
-13	10	3098.42	2027-06-14	\N	Recepción de cirugía
-13	11	3098.42	2027-07-14	\N	Recepción de cirugía
-13	12	3098.38	2027-08-14	\N	Recepción de cirugía
 14	1	790.00	2026-09-14	2026-09-15	Recepción de hospitalización
 15	1	415.00	2026-09-11	2026-09-11	Recepción de hospitalización
 15	2	415.00	2026-10-11	\N	Recepción de hospitalización
@@ -1655,8 +1644,6 @@ COPY hospital.detalle_factura (id_factura, linea, concepto, cantidad, precio_uni
 12	1	Unidad de cuidados intermedios	1.00	900.00
 12	2	Estancia hospitalaria (días)	2.00	450.00
 12	3	Insumos médicos	1.00	165.00
-13	1	Cirugía Ortopédica	1.00	18000.00
-13	2	Insumos quirúrgicos (incluye prótesis)	1.00	19181.00
 14	1	Control cardiocirculatorio	1.00	700.00
 14	2	Insumos médicos	1.00	90.00
 15	1	Aislamiento y control de la vía aérea y ventilación	1.00	800.00
@@ -1768,7 +1755,6 @@ COPY hospital.factura (id_factura, numero, id_hospital, id_paciente, nit, fecha_
 10	HOQ-000010	1	24	98765432	2026-09-05 23:45:00	Atención de emergencia: procedimientos diagnósticos	\N	2	1	485.00
 11	HOQ-000011	1	24	98765432	2026-09-06 02:05:00	Apendicectomía laparoscópica urgente	\N	3	6	8562.00
 12	HOQ-000012	1	24	98765432	2026-09-08 09:30:00	Hospitalización postoperatoria, 2 días	\N	4	2	1965.00
-13	HOQ-000013	1	28	CF	2026-09-14 11:00:00	Artroplastia total de cadera derecha	\N	5	12	37181.00
 14	HOQ-000014	1	28	CF	2026-09-14 14:35:00	Atención de emergencia: control cardiocirculatorio	\N	6	1	790.00
 15	HOQ-000015	1	26	CF	2026-09-11 07:15:00	Atención de emergencia: crisis asmática	\N	8	2	830.00
 16	HOSM-000001	2	27	CF	2026-09-12 17:10:00	Atención de emergencia: esguince de tobillo	\N	9	1	405.00
@@ -2771,7 +2757,7 @@ SELECT pg_catalog.setval('hospital.orden_laboratorio_id_orden_seq', 7, false);
 -- Name: persona_id_persona_seq; Type: SEQUENCE SET; Schema: hospital; Owner: -
 --
 
-SELECT pg_catalog.setval('hospital.persona_id_persona_seq', 37, true);
+SELECT pg_catalog.setval('hospital.persona_id_persona_seq', 39, true);
 
 
 --
@@ -5032,5 +5018,5 @@ ALTER DEFAULT PRIVILEGES FOR ROLE postgres IN SCHEMA hospital GRANT ALL ON TABLE
 -- PostgreSQL database dump complete
 --
 
-\unrestrict aT2WDKj2gu6xRUIqK6M7HyxCeqeSAdaxYdqpZcba4hgKj2pQncmcjqPdFoCsFJW
+\unrestrict UeduSTehyssJcttR2lf7RTkRfpGgToEtinpTweiw7bgTVjtgdsARUbuvBsKe1Wz
 
